@@ -49,6 +49,6 @@ app.use(cartRoutes);
 app.use(productRoutes);
 app.use(profileRoutes);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, process.env.Id, function(){
     console.log("Server is running!!");
 });

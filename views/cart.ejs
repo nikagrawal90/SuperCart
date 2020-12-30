@@ -1,0 +1,50 @@
+<%- include("partials/header") %>
+
+<div class='container'>
+    <div>
+        <a class='btn btn-primary pull-right' href='/products'>Shop More!</a>
+        <h1>My Cart</h1>
+    </div>
+</div>
+
+<div class='container'>
+        <% if(user.cart.length === 0){ %>
+            <div class='jumbotron'>
+                <h2>There is no Item in Your Cart!</h2>
+            </div>
+        <%}%>
+    <div class='row'>
+        <div class='list-group'>
+            <% user.cart.forEach(function(product){ %>
+                <a href="/products/<%=product.category%>/<%=product._id%>"><div>
+                    <li class="list-group-item">
+                        <div class='row'>
+                            <div class='col-md-3'>
+                                <img id="cart-item" src="<%=product.image%>">
+                            </div>
+                            <div class='col-md-9'>
+                                <h5 class="pull-right">$ <%=product.price%></h5>
+                                <h4><%=product.name%></h4>
+                                <br>
+                                <div class='pull-right'>
+                                    <a class="btn btn-xs btn-success" 
+                                        href='cart/<%=product._id%>?alter=1'>+</a>
+                                    <a class="btn btn-xs btn-danger" 
+                                        href='cart/<%=product._id%>?alter=-1'>-</a>
+                                </div>
+                                <br>
+                                <% for(var i=0; i<cartItems.length; i++){ %>
+                                    <% if(cartItems[i].product_id.equals(product._id) && cartItems[i].user_id.equals(user._id)){ %>
+                                        <h4>Quantity: <%=cartItems[i].quantity%></h4>
+                                    <%}%>
+                                <%}%>
+                            </div>
+                        </div>
+                    </li></a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

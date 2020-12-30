@@ -1,0 +1,37 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Add a New Product!</h1>
+        <div class="add-new-form">
+            <form action="/products/<%= category %>" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="product[name]" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="product[image]" placeholder="image">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="product[price]" placeholder="price">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="product[category]">
+                        <option value="fashion">Fashion</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="sports">Sports</option>
+                        <option value="books">Books</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="product[description]" placeholder="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/products">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

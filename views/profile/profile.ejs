@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+
+<div class='container'>
+    <a class='btn btn-lg btn-primary pull-right' href='/products'>Shop More!</a>
+    <h1>Profile</h1>
+</div>
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3'>
+            <div>
+                <img class='image' src='<%=currentUser.image%>'>
+            </div>
+        </div>
+        <div class='col-md-9'>
+            <form>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" value="<%= currentUser.username %>" readonly>
+                </div>
+                <div class="form-group">
+                    <lable>Role</lable>
+                    <input class="form-control" value="<%= currentUser.role %>" readonly>
+                </div>
+                <div class="form-group">
+                    <lable>Address</lable>
+                    <input class="form-control" value="<%= currentUser.address %>" readonly>
+                </div>
+            </form>
+            <a class='btn btn btn-warning' href='profile/edit'>Edit</a>
+            <form class="delete-form" action="/profile?_method=delete" method="POST">
+                <input type="submit" class="btn btn-danger" value="Delete">
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

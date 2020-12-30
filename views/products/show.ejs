@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <a class='btn btn-lg btn-primary pull-right' href='/products'>Shop More!</a>
+    <div>
+        <image class="show-image" src="<%=product.image%>">
+    </div>
+    <div>
+        <h4 style="text-align: end;">$ <%=product.price%> </h4>
+        <div class="description">
+            <% if(currentUser){ %>
+                <a href="/products/<%=product.category%>/<%=product._id%>/cart" class='btn btn-lg btn-success pull-right'>Add to Cart</a>
+            <%}%>
+            <p> <%=product.description%> </p>
+            <% if(currentUser && currentUser.role === 'admin'){ %>
+                <a href="/products/<%=product.category%>/<%=product._id%>/edit" class="btn btn-warning">Edit</a>
+                <form class="delete-form" action="/products/<%=product.category%>/<%=product._id%>?_method=delete" method="POST">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+            <%}%>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

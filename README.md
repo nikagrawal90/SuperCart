@@ -12,6 +12,5 @@ Features -
 - Personalized Cart for user
 - Admin can delete, edit products available on site as well as add new products
 - Profile page for user
-- Products are divided in categories
 
 The site has been deployed on heroku, check it out [here](https://still-shore-94133.herokuapp.com/)

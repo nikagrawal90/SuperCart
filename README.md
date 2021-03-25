@@ -2,7 +2,7 @@
 > Ecommerce web app.
 
 Technologies used are -
- Frontend- HTML, CSS, Javascript, Bootstrap
+- Frontend- HTML, CSS, Javascript, Bootstrap
 - Backend- Node.js, express.js, mongoose, npm
 - Database- Mongodb
 
